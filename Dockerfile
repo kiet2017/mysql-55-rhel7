@@ -11,6 +11,7 @@ RUN rpm -qa | grep yum | xargs rpm -e --nodeps \
 &&  rpm -ivh yum-* \
 &&  wget -P /etc/yum.repos.d/ http://mirrors.163.com/.help/CentOS7-Base-163.repo \
 &&  sed -i "s/\$releasever/7/g" CentOS6-Base-163.repo \
+&&  sed -i "s/mirrors.163.com/vault.centos.org/g" CentOS6-Base-163.repo \
 &&  yum clean all \
 &&  yum makecache
 
