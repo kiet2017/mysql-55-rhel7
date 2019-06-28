@@ -1,35 +1,41 @@
-[Base]
-name=base
-baseurl=http://11.11.113.43/base
-enabled=1
-gpgcheck=0
+# CentOS-Base.repo
+#
+# The mirror system uses the connecting IP address of the client and the
+# update status of each mirror to pick mirrors that are updated to and
+# geographically close to the client.  You should use this for CentOS updates
+# unless you are manually picking other mirrors.
+#
+# If the mirrorlist= does not work for you, as a fall back you can try the 
+# remarked out baseurl= line instead.
+#
+#
+[base]
+name=CentOS-7 - Base - 163.com
+#mirrorlist=http://mirrorlist.centos.org/?release=7&arch=$basearch&repo=os
+baseurl=http://vault.centos.org/centos/7/os/$basearch/
+gpgcheck=1
+gpgkey=http://vault.centos.org/centos/RPM-GPG-KEY-CentOS-7
 
-[epel]
-name=epel
-baseurl=http://11.11.113.43/epel
-enabled=1
-gpgcheck=0
-
-[extras]
-name=extras
-baseurl=http://11.11.113.43/extras
-enabled=1
-gpgcheck=0
-
-[kubernetes]
-name=kubernetes
-baseurl=http://11.11.113.43/kubernetes
-enabled=1
-gpgcheck=0
-
+#released updates
 [updates]
-name=updates
-baseurl=http://11.11.113.43/updates
-enabled=1
-gpgcheck=0
+name=CentOS-7 - Updates - 163.com
+#mirrorlist=http://mirrorlist.centos.org/?release=7&arch=$basearch&repo=updates
+baseurl=http://vault.centos.org/centos/7/updates/$basearch/
+gpgcheck=1
+gpgkey=http://vault.centos.org/centos/RPM-GPG-KEY-CentOS-7
 
-[docker]
-name=docker
-baseurl=http://11.11.113.43/docker
-enabled=1
-gpgcheck=0
+#additional packages that may be useful
+[extras]
+name=CentOS-7 - Extras - 163.com
+#mirrorlist=http://mirrorlist.centos.org/?release=7&arch=$basearch&repo=extras
+baseurl=http://vault.centos.org/centos/7/extras/$basearch/
+gpgcheck=1
+gpgkey=http://vault.centos.org/centos/RPM-GPG-KEY-CentOS-7
+
+#additional packages that extend functionality of existing packages
+[centosplus]
+name=CentOS-7 - Plus - 163.com
+baseurl=http://vault.centos.org/centos/7/centosplus/$basearch/
+gpgcheck=1
+enabled=0
+gpgkey=http://vault.centos.org/centos/RPM-GPG-KEY-CentOS-7
